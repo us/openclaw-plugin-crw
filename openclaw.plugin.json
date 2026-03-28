@@ -6,7 +6,7 @@
     "properties": {
       "apiUrl": {
         "type": "string",
-        "default": "http://localhost:3000",
+        "default": "https://fastcrw.com/api",
         "description": "CRW server URL (self-hosted or https://fastcrw.com/api for cloud)"
       },
       "apiKey": {

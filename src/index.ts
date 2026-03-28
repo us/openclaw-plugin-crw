@@ -21,7 +21,7 @@ export default {
   register(api: PluginApi) {
     const rawConfig = api.getConfig();
     const config = {
-      apiUrl: (rawConfig.apiUrl as string) || "http://localhost:3000",
+      apiUrl: (rawConfig.apiUrl as string) || "https://fastcrw.com/api",
       apiKey: rawConfig.apiKey as string | undefined,
     };
 

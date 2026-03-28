@@ -15,32 +15,27 @@ openclaw plugins install openclaw-plugin-crw
 
 ### Option A: Cloud ([fastcrw.com](https://fastcrw.com)) — Quickest Start
 
-No server to install. [Sign up at fastcrw.com](https://fastcrw.com) and get **500 free credits** to start scraping. Then add your API key to your OpenClaw config:
+No server to install. [Sign up at fastcrw.com](https://fastcrw.com) and get **500 free credits** to start scraping:
 
 ```json
 {
   "plugins": {
     "crw": {
-      "apiUrl": "https://fastcrw.com/api",
       "apiKey": "crw_live_..."
     }
   }
 }
 ```
 
-That's it. Your agents can now scrape, crawl, and map any website.
+That's it — cloud is the default. Your agents can now scrape, crawl, and map any website.
 
-### Option B: Self-hosted (free, no limits)
+### Option B: Self-hosted with binary (free, no limits)
 
-Run CRW on your own machine. No API key, no account, unlimited scraping.
+Single binary, ~15 MB download, ~6 MB idle RAM. No Docker needed.
 
 ```bash
-# Install CRW (single binary, ~6 MB)
 curl -fsSL https://raw.githubusercontent.com/us/crw/main/install.sh | bash
 crw  # starts on http://localhost:3000
-
-# Or use Docker
-docker run -p 3000:3000 ghcr.io/us/crw:latest
 ```
 
 ```json
@@ -53,7 +48,21 @@ docker run -p 3000:3000 ghcr.io/us/crw:latest
 }
 ```
 
-No `apiKey` needed for self-hosted.
+### Option C: Self-hosted with Docker
+
+```bash
+docker run -d -p 3000:3000 ghcr.io/us/crw:latest
+```
+
+```json
+{
+  "plugins": {
+    "crw": {
+      "apiUrl": "http://localhost:3000"
+    }
+  }
+}
+```
 
 ## Tools
 

@@ -13,36 +13,9 @@ openclaw plugins install openclaw-plugin-crw
 
 ## Setup — Pick One
 
-### Option A: Self-hosted (free)
+### Option A: Cloud ([fastcrw.com](https://fastcrw.com)) — Quickest Start
 
-Run CRW on your own machine. No API key, no account, no limits.
-
-```bash
-# Install CRW
-curl -fsSL https://raw.githubusercontent.com/us/crw/main/install.sh | bash
-
-# Start the server (runs on http://localhost:3000)
-crw
-
-# Or use Docker
-docker run -p 3000:3000 ghcr.io/us/crw:latest
-```
-
-Configure in your OpenClaw config:
-
-```json
-{
-  "plugins": {
-    "crw": {
-      "apiUrl": "http://localhost:3000"
-    }
-  }
-}
-```
-
-### Option B: Cloud ([fastcrw.com](https://fastcrw.com))
-
-No server to run. Get an API key from [fastcrw.com](https://fastcrw.com).
+No server to install. Get an API key from [fastcrw.com](https://fastcrw.com) and add to your OpenClaw config:
 
 ```json
 {
@@ -55,6 +28,33 @@ No server to run. Get an API key from [fastcrw.com](https://fastcrw.com).
 }
 ```
 
+That's it. Your agents can now scrape, crawl, and map any website.
+
+### Option B: Self-hosted (free, no limits)
+
+Run CRW on your own machine. No API key, no account, unlimited scraping.
+
+```bash
+# Install CRW (single binary, ~6 MB)
+curl -fsSL https://raw.githubusercontent.com/us/crw/main/install.sh | bash
+crw  # starts on http://localhost:3000
+
+# Or use Docker
+docker run -p 3000:3000 ghcr.io/us/crw:latest
+```
+
+```json
+{
+  "plugins": {
+    "crw": {
+      "apiUrl": "http://localhost:3000"
+    }
+  }
+}
+```
+
+No `apiKey` needed for self-hosted.
+
 ## Tools
 
 | Tool | Description |
@@ -65,25 +65,48 @@ No server to run. Get an API key from [fastcrw.com](https://fastcrw.com).
 
 ## How It Works
 
-Once installed and configured, your OpenClaw agents can use the CRW tools automatically:
+Once installed and configured, your OpenClaw agents use the CRW tools automatically:
 
-**User (via WhatsApp/Telegram/etc):** "Summarize this article: https://example.com/blog/post"
+### Scrape a page
 
-**Agent uses `crw_scrape`** → gets clean markdown → summarizes it → sends response.
+**User (via WhatsApp/Telegram/Discord):** "Summarize this article: https://example.com/blog/post"
+
+**Agent uses `crw_scrape`** → gets clean markdown → summarizes → responds.
+
+### Crawl an entire site
 
 **User:** "Research everything on docs.example.com"
 
-**Agent uses `crw_crawl`** → crawls all pages → synthesizes findings → sends report.
+**Agent uses `crw_crawl`** → discovers and scrapes all pages → synthesizes findings → responds.
+
+### Discover site structure
+
+**User:** "What pages does example.com have?"
+
+**Agent uses `crw_map`** → returns all discovered URLs via sitemap + link traversal.
+
+## Example: URL Scraper Bot
+
+A simple OpenClaw agent that scrapes any URL users send:
+
+1. User sends a URL via WhatsApp/Telegram
+2. Agent detects the URL and calls `crw_scrape`
+3. CRW fetches the page (using [fastcrw.com](https://fastcrw.com) cloud or your local instance)
+4. Agent receives clean markdown — no HTML noise, no nav/footer
+5. Agent summarizes and replies
+
+With fastcrw.com, no infrastructure needed — just plug in your API key and go.
 
 ## Compared to Firecrawl Plugin
 
 | Feature | CRW Plugin | Firecrawl Plugin |
 |---------|-----------|-----------------|
-| Self-hosted | Yes (single binary) | Complex (5+ containers) |
-| Cloud option | Yes (fastcrw.com) | Yes (firecrawl.dev) |
+| Cloud option | [fastcrw.com](https://fastcrw.com) | firecrawl.dev |
+| Self-hosted | Yes (single binary, ~6 MB) | Complex (5+ containers) |
 | API key required | No (self-hosted) | Yes (always) |
 | Idle RAM | ~6 MB | ~500 MB+ |
 | Avg latency | 833ms | 4,600ms |
+| Cost (self-hosted) | $0 | $0 but heavy infra |
 
 ## License
 

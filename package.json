@@ -1,0 +1,29 @@
+{
+  "name": "openclaw-plugin-crw",
+  "version": "0.1.0",
+  "description": "CRW web scraping plugin for OpenClaw — scrape, crawl, and map websites",
+  "type": "module",
+  "main": "./src/index.ts",
+  "openclaw": {
+    "extensions": ["./src/index.ts"]
+  },
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["openclaw", "plugin", "crw", "web-scraping", "ai-agents"],
+  "author": "CRW Project <hello@fastcrw.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/us/openclaw-plugin-crw"
+  },
+  "devDependencies": {
+    "@sinclair/typebox": "^0.34.0",
+    "typescript": "^5.7.0",
+    "bun-types": "^1.2.0"
+  },
+  "peerDependencies": {
+    "openclaw": ">=1.0.0"
+  }
+}

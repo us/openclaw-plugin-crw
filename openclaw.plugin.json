@@ -1,0 +1,22 @@
+{
+  "id": "crw",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "apiUrl": {
+        "type": "string",
+        "default": "http://localhost:3000",
+        "description": "CRW server URL (self-hosted or https://fastcrw.com/api for cloud)"
+      },
+      "apiKey": {
+        "type": "string",
+        "description": "API key for fastcrw.com cloud (not required for self-hosted)"
+      }
+    }
+  },
+  "uiHints": {
+    "apiUrl": { "label": "CRW Server URL" },
+    "apiKey": { "label": "CRW API Key", "sensitive": true }
+  }
+}

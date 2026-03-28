@@ -15,7 +15,7 @@ openclaw plugins install openclaw-plugin-crw
 
 ### Option A: Cloud ([fastcrw.com](https://fastcrw.com)) — Quickest Start
 
-No server to install. Get an API key from [fastcrw.com](https://fastcrw.com) and add to your OpenClaw config:
+No server to install. [Sign up at fastcrw.com](https://fastcrw.com) and get **500 free credits** to start scraping. Then add your API key to your OpenClaw config:
 
 ```json
 {

@@ -1,6 +1,7 @@
 import { createCrwScrapeTool } from "./crw-scrape-tool.js";
 import { createCrwCrawlTool } from "./crw-crawl-tool.js";
 import { createCrwMapTool } from "./crw-map-tool.js";
+import { createCrwSearchTool } from "./crw-search-tool.js";
 
 interface PluginApi {
   registerTool: (tool: unknown) => void;
@@ -10,7 +11,7 @@ interface PluginApi {
 /**
  * OpenClaw plugin entry point for CRW web scraper.
  *
- * Provides three tools: crw_scrape, crw_crawl, crw_map.
+ * Provides four tools: crw_scrape, crw_crawl, crw_map, crw_search.
  * Configure via openclaw.plugin.json with apiUrl and apiKey.
  */
 export default {
@@ -28,5 +29,6 @@ export default {
     api.registerTool(createCrwScrapeTool(config));
     api.registerTool(createCrwCrawlTool(config));
     api.registerTool(createCrwMapTool(config));
+    api.registerTool(createCrwSearchTool(config));
   },
 };

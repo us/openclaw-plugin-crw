@@ -1,11 +1,13 @@
 {
   "name": "openclaw-plugin-crw",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "CRW web scraping plugin for OpenClaw — scrape, crawl, and map websites",
   "type": "module",
   "main": "./src/index.ts",
   "openclaw": {
-    "extensions": ["./src/index.ts"],
+    "extensions": [
+      "./src/index.ts"
+    ],
     "compat": {
       "pluginApi": "1"
     }

@@ -71,7 +71,7 @@ docker run -d -p 3000:3000 ghcr.io/us/crw:latest
 | `crw_scrape` | Scrape a single URL and get clean markdown |
 | `crw_crawl` | BFS crawl a website, collect content from multiple pages |
 | `crw_map` | Discover all URLs on a website via sitemap + link traversal |
-| `crw_search` | Search the web and return results with content (cloud-only) |
+| `crw_search` | Search the web for results with titles, URLs, and descriptions; optionally scrape full content with `scrape: true` (cloud-only) |
 
 ## How It Works
 

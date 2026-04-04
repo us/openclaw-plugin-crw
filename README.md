@@ -34,7 +34,7 @@ That's it — cloud is the default. Your agents can now scrape, crawl, and map a
 Single binary, ~15 MB download, ~6 MB idle RAM. No Docker needed.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/us/crw/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/us/crw/main/install.sh | sh
 crw  # starts on http://localhost:3000
 ```
 
@@ -71,6 +71,7 @@ docker run -d -p 3000:3000 ghcr.io/us/crw:latest
 | `crw_scrape` | Scrape a single URL and get clean markdown |
 | `crw_crawl` | BFS crawl a website, collect content from multiple pages |
 | `crw_map` | Discover all URLs on a website via sitemap + link traversal |
+| `crw_search` | Search the web and return results with content (cloud-only) |
 
 ## How It Works
 

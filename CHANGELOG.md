@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/us/openclaw-plugin-crw/compare/v0.2.0...v0.3.0) (2026-04-04)
+
+
+### Features
+
+* add integration tests, fix fetch mock leak ([#3](https://github.com/us/openclaw-plugin-crw/issues/3)) ([d41de12](https://github.com/us/openclaw-plugin-crw/commit/d41de12bd6959ab3f5f3cc2451e181b5320a1149))
+
 ## [0.2.0](https://github.com/us/openclaw-plugin-crw/compare/v0.1.1...v0.2.0) (2026-04-02)
 
 
